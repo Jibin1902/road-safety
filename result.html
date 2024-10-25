@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Result{% endblock %}
+
+{% block content %}
+<div class="result-container">
+    <h2>Prediction Result</h2>
+    <p>The predicted Injury Severity is: <strong>{{ prediction }}</strong></p>
+    <h3>Input Details:</h3>
+    <ul>
+        <li><strong>Vehicle Involved:</strong> {{ vehicle }}</li>
+        <li><strong>Weather Conditions:</strong> {{ weather }}</li>
+        <li><strong>Cause:</strong> {{ cause }}</li>
+        <li><strong>Number of Vehicles:</strong> {{ num_vehicles }}</li>
+        <li><strong>Number of Injuries:</strong> {{ num_injuries }}</li>
+        <li><strong>Number of Fatalities:</strong> {{ num_fatalities }}</li>
+    </ul>
+    <a href="{{ url_for('index') }}">Make another prediction</a>
+</div>
+{% endblock %}

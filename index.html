@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Injury Severity Prediction{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Enter Details for Prediction</h2>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <label for="vehicle_involved">Vehicle Involved:</label>
+        <select id="vehicle_involved" name="vehicle_involved" required>
+            <option value="0">Car</option>
+            <option value="1">Truck</option>
+            <option value="2">Motorcycle</option>
+            <option value="3">Bicycle</option>
+            <option value="4">Pedestrian</option>
+        </select>
+
+        <label for="weather_conditions">Weather Conditions:</label>
+        <select id="weather_conditions" name="weather_conditions" required>
+            <option value="0">Clear</option>
+            <option value="1">Rain</option>
+            <option value="2">Fog</option>
+            <option value="3">Snow</option>
+        </select>
+
+        <label for="cause">Cause:</label>
+        <select id="cause" name="cause" required>
+            <option value="0">Over Speeding</option>
+            <option value="1">Drunk Driving</option>
+            <option value="2">Distracted Driving</option>
+            <option value="3">Mechanical Failure</option>
+            <option value="4">Road Conditions</option>
+        </select>
+
+        <label for="num_vehicles">Number of Vehicles:</label>
+        <input type="number" id="num_vehicles" name="num_vehicles" required>
+
+        <label for="num_injuries">Number of Injuries:</label>
+        <input type="number" id="num_injuries" name="num_injuries" required>
+
+        <label for="num_fatalities">Number of Fatalities:</label>
+        <input type="number" id="num_fatalities" name="num_fatalities" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+{% endblock %}
